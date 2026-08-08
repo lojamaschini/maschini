@@ -1,29 +1,47 @@
 function filtrarProdutos(cor) {
 
+    // Pega todos os produtos da loja
     const produtos = document.querySelectorAll(".produto");
+
+    // Pega todos os botões de filtro
     const botoes = document.querySelectorAll(".filtro");
 
-    // Remove o destaque dos botões
+    // Remove o destaque de todos os botões
     botoes.forEach(function(botao) {
         botao.classList.remove("ativo");
     });
 
-    // Destaca o botão selecionado
+    // Coloca destaque no botão escolhido
     const botaoSelecionado = document.querySelector(
-        `.filtro[data-cor="${cor}"]`
+        '.filtro[data-cor="' + cor + '"]'
     );
 
     if (botaoSelecionado) {
         botaoSelecionado.classList.add("ativo");
     }
 
-    // Mostra ou esconde os produtos
+    // Filtra os produtos
     produtos.forEach(function(produto) {
 
-        if (cor === "todos" || produto.dataset.cor === cor) {
+        // Se escolheu "Todos", mostra tudo
+        if (cor === "todos") {
+
             produto.style.display = "block";
-        } else {
+
+        }
+
+        // Se a cor do produto for igual à escolhida, mostra
+        else if (produto.dataset.cor === cor) {
+
+            produto.style.display = "block";
+
+        }
+
+        // Caso contrário, esconde
+        else {
+
             produto.style.display = "none";
+
         }
 
     });
