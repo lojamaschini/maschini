@@ -1,9 +1,6 @@
 function filtrarProdutos(cor) {
 
-    // Pega todos os produtos da loja
     const produtos = document.querySelectorAll(".produto");
-
-    // Pega todos os botões de filtro
     const botoes = document.querySelectorAll(".filtro");
 
     // Remove o destaque de todos os botões
@@ -11,11 +8,12 @@ function filtrarProdutos(cor) {
         botao.classList.remove("ativo");
     });
 
-    // Coloca destaque no botão escolhido
+    // Encontra o botão que foi clicado
     const botaoSelecionado = document.querySelector(
         '.filtro[data-cor="' + cor + '"]'
     );
 
+    // Coloca o destaque no botão selecionado
     if (botaoSelecionado) {
         botaoSelecionado.classList.add("ativo");
     }
@@ -23,26 +21,18 @@ function filtrarProdutos(cor) {
     // Filtra os produtos
     produtos.forEach(function(produto) {
 
-        // Se escolheu "Todos", mostra tudo
         if (cor === "todos") {
-
             produto.style.display = "block";
-
         }
 
-        // Se a cor do produto for igual à escolhida, mostra
         else if (produto.dataset.cor === cor) {
-
             produto.style.display = "block";
-
         }
 
-        // Caso contrário, esconde
         else {
-
             produto.style.display = "none";
-
         }
 
     });
+
 }
