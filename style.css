@@ -393,4 +393,19 @@ body > p {
 
         font-size: 14px;
     }
+    /* Fotos da frente e das costas */
+.produto .fotos-produto {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: 100%;
+}
+
+.produto .fotos-produto img {
+    display: block;
+    width: calc(50% - 2.5px);
+    height: 420px;
+    object-fit: cover;
+    flex: 0 0 calc(50% - 2.5px);
+}
 }
